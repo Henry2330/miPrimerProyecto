@@ -17,6 +17,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        
 
         <script>
             //PREGUNTA 1 IMPLEMENTACION DE LA FUNCION PARA MOSTRAR EL DETALLE DE LA TAREA
@@ -62,7 +63,12 @@
            {
             console.log('Crear nueva tarea')
             //Escribir su codigo aqui
-
+              let fechaCreacion = document.querySelector('#fechaCreacion')
+              let fechaEntrega = document.querySelector('#fechaEntrega')
+              let estadoTarea = document.querySelector('#estadoTarea')
+              console.log(fechaCreacion.value)
+              console.log(fechaEntrega.value)
+              console.log(estadoTarea.value)
             //Fin del codigo
             $(".modal-backdrop").remove();
             $('#nuevaTarea').hide()
@@ -166,6 +172,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="eliminarNuevo()"></button>
             </div>
             <div class="modal-body">
+                <div class="form-group">
+                    <label>Fecha de creacion</label>
+                    <div class="input-group">
+                        <input id="fechaCreacion" type="date" class="form-control" name="fechaCreacion">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de entrega</label>
+                    <div class="input-group">
+                        <input id="fechaEntrega" type="date" class="form-control" name="fechaEntrega">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Estado de la tarea</label>
+                    <div class="input-group">
+                        <select id="estadoTarea" class="form-control" name="estadoTarea">
+                            <option>Progreso</option>
+                            <option>Finalizado</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="eliminarNuevo()">Cancelar</button>
@@ -192,6 +219,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="form-group">
+                    <label>Fecha de creacion</label>
+                    <div class="input-group">
+                        <input id="fechaCreacion" type="date" class="form-control" name="fechaCreacion">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de entrega</label>
+                    <div class="input-group">
+                        <input id="fechaEntrega" type="date" class="form-control" name="fechaEntrega">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Estado de la tarea</label>
+                    <div class="input-group">
+                        <select id="estadoTarea" class="form-control" name="estadoTarea">
+                            <option>Progreso</option>
+                            <option>Finalizando</option>
+                            <option>Finalizado</option>
+                            <option>Pendiente</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
