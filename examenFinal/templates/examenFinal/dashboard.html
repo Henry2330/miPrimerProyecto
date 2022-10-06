@@ -63,9 +63,16 @@
            {
             console.log('Crear nueva tarea')
             //Escribir su codigo aqui
+              
               let fechaCreacion = document.querySelector('#fechaCreacion')
               let fechaEntrega = document.querySelector('#fechaEntrega')
               let estadoTarea = document.querySelector('#estadoTarea')
+              fetch(`/examenFinal/nuevaTarea?fechaCreacion=${fechaCreacion.value}&fechaEntrega=${fechaEntrega.value}&estadoTarea=${estadoTarea.value}`)
+              .then(response => response.json())
+              .then(data => {
+                console.log(data)
+                
+              })
               console.log(fechaCreacion.value)
               console.log(fechaEntrega.value)
               console.log(estadoTarea.value)
@@ -143,6 +150,7 @@
                 <tbody>
                 {% for tarea in tareas_totales %}
                 <tr>
+                    <td scope="row" hidden>{{ tarea.id }}</td>
                     <td scope="row">{{ tarea.fechaCreacion }}</td>
                     <td>{{ tarea.fechaEntrega }}</td>
                     <td>{{ tarea.estadoTarea }}</td>
@@ -189,7 +197,9 @@
                     <div class="input-group">
                         <select id="estadoTarea" class="form-control" name="estadoTarea">
                             <option>Progreso</option>
+                            <option>Finalizando</option>
                             <option>Finalizado</option>
+                            <option>Pendiente</option>
                         </select>
                     </div>
                 </div>
