@@ -71,7 +71,17 @@
               .then(response => response.json())
               .then(data => {
                 console.log(data)
-                
+                   let tabla_tareas = document.querySelector('#tablaTareas')
+                   let nueva_fila = `
+                   <td>${data.fechaCreacion}{</td>
+                   <td>${data.fechaEntrega}</td>
+                   <td>${data.estadoTarea}</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   `
+                   tabla_tareas.innerHTML += nueva_fila
+                   
               })
               console.log(fechaCreacion.value)
               console.log(fechaEntrega.value)
@@ -147,7 +157,7 @@
                         <th scope="col">Eliminar tarea</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tablaTareas">
                 {% for tarea in tareas_totales %}
                 <tr>
                     <td scope="row" hidden>{{ tarea.id }}</td>
